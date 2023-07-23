@@ -53,7 +53,7 @@ function ProtectedRoute({children}) {
                     <h1 className='underline'>
                         {user?.name}
                     </h1>
-                    <i class="ri-logout-circle-r-line ml-5 text-xl cursor-pointer" onClick={() => {
+                    <i className="ri-logout-circle-r-line ml-5 text-xl cursor-pointer" onClick={() => {
                         localStorage.removeItem("token")
                         navigate('/login')
                     }}></i>

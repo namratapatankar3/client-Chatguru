@@ -1,6 +1,6 @@
 import React, { useState ,useEffect} from 'react'
 import { toast } from 'react-hot-toast'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { RegisterUser } from '../apicalls/users'
 import { useDispatch } from 'react-redux'
 import { hideLoader, showLoader } from '../redux/loaderSlice'
@@ -10,6 +10,7 @@ export default function Register() {
         name:"",password:"",email:""
     })
     const dispatch = useDispatch()
+    const navigate= useNavigate()
     const registerHandler = async () => {
         try {
             dispatch(showLoader())
@@ -17,6 +18,7 @@ export default function Register() {
             dispatch(hideLoader())
             if (response.success)
             {
+                navigate("/login")
                 toast.success(response.message)
             }
             else {
